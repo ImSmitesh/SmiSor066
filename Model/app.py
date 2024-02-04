@@ -1,3 +1,5 @@
+# Using saved model to predict the given text
+
 import joblib
 
 vectorizer = joblib.load('tfidf_vectorizer.pkl')
