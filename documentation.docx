@@ -3,7 +3,6 @@ This API provides a simple and efficient way to perform text classification usin
 It uses a TF-IDF vectorizer to transform input text into numerical features, which are then used for classification. 
 The model predicts the category or label of the input text based on the learned patterns from the training data.
 
-
 1. Health Check
 Endpoint: /
 Method: GET
@@ -15,14 +14,25 @@ Endpoint: /predict/
 Method: POST
 Description: Accepts input text and predicts its category or label using the pre-trained SVM model.
 
-Dependencies:
-Python Libraries:
+Important files:
+model used for deployment: Model/best_svm_model.pkl
+requirements.txt: Model/requirements.txt
+Dockerfile: Dockerfile
+training.ipynb: Train/training.ipynb
+app.py: Model/app.py
+main.py: Model/main.py
+
+Dependencies (Python Libraries):
 sciki-learn
 joblib
 fastapi
 pydantic
 
-Model Information
-TF-IDF Vectorizer: Loaded from tfidf_vectorizer.pkl.
-SVM Model: Loaded from best_svm_model.pkl.
-Label Encoder: Loaded from l_encoder_vectorizer.pkl.
+Model Information:
+TF-IDF Vectorizer: Loaded from tfidf_vectorizer.pkl
+SVM Model: Loaded from best_svm_model.pkl
+Label Encoder: Loaded from l_encoder_vectorizer.pkl
+
+Future Work Suggestions:
+Using machine learning model SVM, I was able to get 85% accuracy but, this score can be still improved using deep learning
+language model. As a next part of this project, I will try to improvise the accuracy using deep learning language model.
