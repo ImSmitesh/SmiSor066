@@ -1,22 +1,7 @@
-# Use an official Python runtime as a parent image
-FROM python:3.10-slim
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
-# Set the working directory in the container
-WORKDIR /Model
+COPY ./Model/requirements.txt /app/requirements.txt
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-# Install any needed packages specified in requirements.txt
-RUN apt-get update && \
-    pip install -U scikit-learn && \
-    pip install joblib
-
-# Make port 80 available to the world outside this container
-EXPOSE 80
-
-# Define environment variable
-ENV NAME World
-
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+COPY ./Model /app

@@ -1,0 +1,28 @@
+Overview
+This API provides a simple and efficient way to perform text classification using a Support Vector Machine (SVM) model. 
+It uses a TF-IDF vectorizer to transform input text into numerical features, which are then used for classification. 
+The model predicts the category or label of the input text based on the learned patterns from the training data.
+
+
+1. Health Check
+Endpoint: /
+Method: GET
+Description: Checks the health status of the API and provides basic information about the model version and name.
+health status, model version and model name are response from this endpoint.
+
+2. Text Classification
+Endpoint: /predict/
+Method: POST
+Description: Accepts input text and predicts its category or label using the pre-trained SVM model.
+
+Dependencies:
+Python Libraries:
+sciki-learn
+joblib
+fastapi
+pydantic
+
+Model Information
+TF-IDF Vectorizer: Loaded from tfidf_vectorizer.pkl.
+SVM Model: Loaded from best_svm_model.pkl.
+Label Encoder: Loaded from l_encoder_vectorizer.pkl.
